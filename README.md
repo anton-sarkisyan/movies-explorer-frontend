@@ -1,1 +1,4 @@
-# movies-explorer-frontend
+# Movie Explorer - Frontend
+
+## Описание
+Одностраничный сайт для поиска и сохранения понравившихся фильмов.
