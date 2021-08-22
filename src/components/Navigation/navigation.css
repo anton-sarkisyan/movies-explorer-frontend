@@ -1,0 +1,130 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  max-width: 520px;
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s ease-in-out, opacity .3s ease-in-out;
+}
+
+.navigation_open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.navigation__close-icon {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  background: url('../../images/icon-close.svg') no-repeat center;
+  object-fit: contain;
+  width: 22px;
+  height: 22px;
+  transition: opacity .3s ease;
+  cursor: pointer;
+}
+
+.navigation__close-icon:hover {
+  opacity: .7;
+}
+
+.navigation__menu {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  justify-content: center;
+  margin-top: 159px;
+  gap: 28px;
+}
+
+.navigation__link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  transition: opacity .3s ease;
+}
+
+.navigation__link:hover {
+  opacity: .7;
+}
+
+.navigation__link_active {
+  padding-bottom: 4px;
+  border-bottom: 2px solid #000000;
+}
+
+.navigation__item {
+  text-align: center;
+}
+
+.navigation__account-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 90px;
+}
+
+.navigation__account {
+  position: relative;
+  transition: opacity .2s ease;
+}
+
+.navigation__account:hover {
+  opacity: .7;
+}
+
+.navigation__account-button {
+  padding: 10px 36px 10px 11px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 12px;
+  border-radius: 40px;
+  border: none;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.navigation__account-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 13px;
+  margin: 3px 3px 3px;
+  background-color: #F9F9F9;
+  top: 0;
+  right: 0;
+}
+
+.navigation__account-icon-svg {
+  background: url('../../images/account-icon.svg') no-repeat;
+  background-size: 100%;
+  width: 11px;
+  height: 11px;
+}
+
+@media screen and (max-width: 767px) {
+  .navigation__menu {
+    margin-top: 144px;
+    gap: 24px;
+  }
+
+  .navigation__account-items {
+    padding-bottom: 46px;
+  }
+}
