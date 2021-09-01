@@ -1,21 +1,36 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import SavedMoviesContext from '../../context/SavedMoviesContext';
+
 import './moviesCard.css';
 
 const MoviesCard = ({
-  src, title, time, isSaved,
+  src, title, time, isSaved, link, handleClickButton, movie,
 }) => {
-  const [isLike, setIsLike] = useState(false);
+  const savedMovies = useContext(SavedMoviesContext);
+  const isLiked = savedMovies.find((i) => +i.movieId === movie.id);
 
-  const handleLikeClick = () => {
-    setIsLike((prevState) => !prevState);
+  const getTimeFromMinutes = (mins) => {
+    const hours = Math.trunc(mins / 60);
+    const minutes = mins % 60;
+    return hours
+      ? minutes
+        ? `${hours}ч ${minutes}м`
+        : `${hours}ч`
+      : `${minutes}м`;
   };
 
   return (
     <li className='card'>
-      <img
-        alt={title}
-        src={src}
-        className='card__img'/>
+      <a
+        className='card__img-link'
+        target='_blank'
+        rel="noreferrer"
+        href={link}>
+        <img
+          alt={title}
+          src={src}
+          className='card__img' />
+      </a>
       <div className={
         `card__items-block
         ${isSaved && 'card__items-block_saved'}`
@@ -31,6 +46,7 @@ const MoviesCard = ({
                 className='
                 card__button
                 card__button_type_close'
+                onClick={() => handleClickButton(movie)}
               />
             )
             : (
@@ -39,15 +55,15 @@ const MoviesCard = ({
                 className={
                   `card__button
                   card__button_type_like
-                  ${isLike && 'card__button_type_like-on'}`
+                  ${isLiked && 'card__button_type_like-on'}`
                 }
-                onClick={handleLikeClick}
+                onClick={() => handleClickButton(movie)}
               />
             )
           }
         </div>
         <p className='card__duration'>
-          {time}
+          {getTimeFromMinutes(time)}
         </p>
       </div>
     </li>

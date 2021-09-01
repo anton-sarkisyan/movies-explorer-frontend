@@ -2,6 +2,14 @@
   padding: 70px 0 247px;
 }
 
+.saved-movies__not-found {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}
+
 @media screen and (max-width: 1279px) {
   .saved-movies__movies-card-block {
     padding: 80px 0 170px;
