@@ -23,12 +23,12 @@ const Movies = ({ handleLikeClick }) => {
   const switchShortMovie = () => {
     if (!isSwitchShortMovie && movies) {
       const filtered = filterShortMovie(movies);
-      setMovies(filtered);
+      setMovies(filtered || []);
     }
 
     if (isSwitchShortMovie && movies) {
       const data = JSON.parse(localStorage.getItem('movies'));
-      setMovies(data);
+      setMovies(data || []);
     }
     setIsSwitchShortMovie((prevState) => !prevState);
   };
