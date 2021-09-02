@@ -39,5 +39,16 @@
     "eslint-plugin-import": "^2.24.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0"
+  },
+  "description": "Одностраничный сайт для поиска и сохранения понравившихся фильмов.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anton-sarkisyan/movies-explorer-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anton-sarkisyan/movies-explorer-frontend/issues"
   }
 }
