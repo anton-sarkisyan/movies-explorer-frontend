@@ -19,9 +19,14 @@ const AuthForm = ({
   const handleSignUp = () => {
     signUp(values.password, values.email, values.name)
       .then(() => {
-        setServerError({});
-        resetForm();
-        history.push('/signin');
+        signIn(values.password, values.email)
+          .then(() => {
+            setServerError({});
+            resetForm();
+            handleLoggedIn();
+            history.push('/movies');
+          })
+          .catch(() => 'При авторизации произошла ошибка');
       })
       .catch((error) => {
         let textError;

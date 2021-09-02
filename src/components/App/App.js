@@ -22,7 +22,7 @@ import SavedMoviesContext from '../../context/SavedMoviesContext';
 const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const history = useHistory();
 
   const handleSetCurrentUser = (data) => setCurrentUser(data);
@@ -143,6 +143,7 @@ const App = () => {
                   <Header />
                   <AuthForm
                     isSignup
+                    handleLoggedIn={handleLoggedIn}
                     link='/signin'
                     title='Добро пожаловать!'
                     button='Зарегистрироваться'
