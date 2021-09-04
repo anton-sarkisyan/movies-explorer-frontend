@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { validate } from 'react-email-validator';
 
 const useFormWithValidation = () => {
   const [values, setValues] = useState({});
@@ -11,9 +12,21 @@ const useFormWithValidation = () => {
     const { target } = event;
     const { name } = target;
     const { value } = target;
+    let messageErrEmail;
+
     setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: target.validationMessage });
-    setIsValid(target.closest('form').checkValidity());
+    if (name !== 'email') {
+      setErrors({ ...errors, [name]: target.validationMessage });
+    } else {
+      const isValidEmail = validate(value);
+      messageErrEmail = value
+        ? isValidEmail
+          ? ''
+          : 'Введён неверный формат почты'
+        : 'Вы пропустили это поле';
+      setErrors({ ...errors, [name]: messageErrEmail });
+    }
+    setIsValid(target.closest('form').checkValidity() && !messageErrEmail);
   };
 
   const resetForm = useCallback(

@@ -127,6 +127,13 @@
   margin-left: 14px;
 }
 
+.search-form__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 1279px) {
   .search-form {
     width: calc(100% - 60px);

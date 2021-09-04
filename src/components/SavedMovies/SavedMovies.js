@@ -13,6 +13,7 @@ const SavedMovies = ({ handleDeleteCard }) => {
   const [inputValue, setInputValue] = useState('');
   const [responseText, setResponseText] = useState('');
   const [isSwitchShortMovie, setIsSwitchShortMovie] = useState(false);
+  const [error, setError] = useState('');
 
   const changeKeyDataMovies = () => savedMovies.map((movie) => ({
     id: movie.movieId,
@@ -46,6 +47,12 @@ const SavedMovies = ({ handleDeleteCard }) => {
 
   const handleSearchButton = (e) => {
     e.preventDefault();
+
+    if (!inputValue) {
+      setError('Нужно ввести ключевое слово');
+      return;
+    }
+    setError('');
     const data = changeKeyDataMovies();
 
     const filteredMovies = filterMovies(data, inputValue, isSwitchShortMovie);
@@ -56,6 +63,8 @@ const SavedMovies = ({ handleDeleteCard }) => {
   return (
     <div>
       <SearchForm
+        isLoading={false}
+        error={error}
         inputValue={inputValue}
         handleInputValue={(e) => setInputValue(e.target.value)}
         handleSearchButton={handleSearchButton}

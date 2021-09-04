@@ -105,6 +105,14 @@
   margin-top: 6px;
 }
 
+.profile__success-text {
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  margin: 20px 0 0;
+  color: #FF6838;
+}
+
 .profile__errors-block_server-text {
   margin: 0 0 20px;
   display: flex;

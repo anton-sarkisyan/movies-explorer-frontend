@@ -1,4 +1,5 @@
 import React from 'react';
+import Error from '../Error/Error';
 import './searchForm.css';
 
 const SearchForm = ({
@@ -7,6 +8,8 @@ const SearchForm = ({
   switchShortMovie,
   handleInputValue,
   inputValue,
+  isLoading,
+  error,
 }) => (
     <form
       onSubmit={handleSearchButton}
@@ -18,10 +21,10 @@ const SearchForm = ({
           onChange={handleInputValue}
           placeholder='Фильм'
           className='search-form__input'
-          required
         />
         <div className='search-form__controls'>
           <button
+            disabled={isLoading}
             type='submit'
             className='search-form__button-search'>
             <div className='search-form__search-arrow' />
@@ -41,6 +44,9 @@ const SearchForm = ({
           </span>
           </div>
         </div>
+      </div>
+      <div className='search-form__error'>
+        <Error text={error} />
       </div>
     </form>
 );

@@ -19,6 +19,7 @@ const Movies = ({ handleLikeClick }) => {
   const [responseText, setResponseText] = useState('');
   const [cardCount, setCardCount] = useState(0);
   const [isSwitchShortMovie, setIsSwitchShortMovie] = useState(false);
+  const [error, setError] = useState('');
 
   const switchShortMovie = () => {
     if (!isSwitchShortMovie && movies) {
@@ -62,6 +63,11 @@ const Movies = ({ handleLikeClick }) => {
   const handleSearchButton = (e) => {
     e.preventDefault();
 
+    if (!inputValue) {
+      setError('Нужно ввести ключевое слово');
+      return;
+    }
+    setError('');
     setIsLoading(true);
     getMoviesData()
       .then((data) => {
@@ -82,6 +88,8 @@ const Movies = ({ handleLikeClick }) => {
   return (
     <div>
       <SearchForm
+        isLoading={isLoading}
+        error={error}
         inputValue={inputValue}
         handleInputValue={(e) => setInputValue(e.target.value)}
         handleSearchButton={handleSearchButton}
