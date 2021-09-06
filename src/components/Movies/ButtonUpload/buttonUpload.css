@@ -8,6 +8,7 @@
   padding: 11px 60px 9px;
   transition: opacity .2s ease;
   cursor: pointer;
+  border: none;
 }
 
 .button-upload__text {

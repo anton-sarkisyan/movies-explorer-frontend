@@ -21,7 +21,6 @@ const Promo = () => {
         className='promo__button'
         onClick={handleClickButton}>
         <span
-          type='button'
           className='promo__link'>
           Узнать больше
         </span>

@@ -11,13 +11,13 @@
   right: 0;
   z-index: 1;
   visibility: hidden;
-  opacity: 0;
-  transition: visibility .3s ease-in-out, opacity .3s ease-in-out;
+  transform: translateX(100%);
+  transition: all .4s ease-out;
 }
 
 .navigation_open {
   visibility: visible;
-  opacity: 1;
+  transform: translateX(0);
 }
 
 .navigation__close-icon {

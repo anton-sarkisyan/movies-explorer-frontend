@@ -18,7 +18,11 @@
         "react"
     ],
     "rules": {
+      "no-nested-ternary": "off",
+      "no-unused-expressions": "off",
       "react/prop-types": "off",
-      "no-shadow": "off"
+      "no-shadow": "off",
+      "no-underscore-dangle": ["error", {"allow": ["_id"]}]
     }
 }
+

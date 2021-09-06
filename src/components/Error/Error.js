@@ -1,9 +1,9 @@
 import React from 'react';
 import './error.css';
 
-const Error = () => (
+const Error = ({ text }) => (
     <span className='error'>
-      Что-то пошло не так...
+      {text}
     </span>
 );
 

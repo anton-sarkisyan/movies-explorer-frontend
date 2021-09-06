@@ -9,6 +9,11 @@
   width: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.card__img:hover {
+  opacity: .7;
 }
 
 .card__items-block {
@@ -45,7 +50,7 @@
   opacity: 1;
   border: none;
   cursor: pointer;
-  transition: all .2s ease;
+  transition: all .3s ease-in-out;
   margin-left: 20px;
 }
 
@@ -67,7 +72,6 @@
 .card__button_type_close {
   visibility: hidden;
   opacity: 0;
-  transition: visibility .3s, opacity .3s linear;
 }
 
 .card__items-block:hover .card__button_type_close {
@@ -76,6 +80,7 @@
   background: url('../../images/card-close.svg') no-repeat;
   width: 7px;
   height: 7px;
+  transition: opacity .3s ease-in-out;
 }
 
 .card__items-block:hover .card__button_type_close:hover {
